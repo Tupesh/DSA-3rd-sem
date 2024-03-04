@@ -1,2 +1,5 @@
 # Include .cpp files
 *.cpp
+
+.vscode
+linkedlist
