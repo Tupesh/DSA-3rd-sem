@@ -1,7 +1,6 @@
 # Ignore all files without extensions
+.exe
 *
 !*/
 !*.*
-
-.exe
 .vscode/
