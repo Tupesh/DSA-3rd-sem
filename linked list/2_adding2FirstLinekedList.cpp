@@ -31,28 +31,30 @@ int main()
     // Looping through the node
     while (temp != NULL)
     {
-        printf("%d \t %p \n", temp->data, temp->next);
+        printf("%d \t |%d| \n", temp->data, temp->next);
         temp = temp->next;
     }
 
     // Creating new node
-    struct node *four = (struct node *)malloc(sizeof(struct node));
+    struct node *zero = (struct node *)malloc(sizeof(struct node));
 
     // Assigning data's value to the last node
-    four->data = 45;
-    four->next=NULL;
+    zero->data = 45;
 
-    // Adding the address of the last node to the new last node
-    three->next = four;
+    // Adding the address of the first node zero to the new node
+    zero->next=one;
 
+    //Reinitializing the head to zero
+    head=zero;
     
     getchar();
 
+    printf("After adding new node to the last\n");
     // Revisiting the list to check if new node had been added or not
     temp=head;
     while (temp != NULL)
     {
-        printf("%d \t %p \n", temp->data, temp->next);
+        printf("%d \t |%d| \n", temp->data, temp->next);
         temp = temp->next;
     }
 }
