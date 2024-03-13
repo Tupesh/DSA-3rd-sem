@@ -43,7 +43,7 @@ int main()
     printf("Looping from head\n");
     while (tempNext != NULL)
     {
-        printf("%d \t %d \n", tempNext->data, tempNext->next);
+        printf("%d \t| %p |\t| %p |\n", tempNext->data, tempNext->next,tempNext->prev);
         tempNext = tempNext->next;
     }
 
@@ -51,7 +51,7 @@ int main()
     printf("\nLooping from tail\n");
     while (tempPrev != NULL)
     {
-        printf("%d \t %d \n", tempPrev->data, tempPrev->prev);
+        printf("%d \t| %p |\t| %p |\n", tempPrev->data,tempPrev->next, tempPrev->prev);
         tempPrev = tempPrev->prev;
     }
 }
