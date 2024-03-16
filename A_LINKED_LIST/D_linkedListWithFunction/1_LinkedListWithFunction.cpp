@@ -38,7 +38,7 @@ int main()
     printf("Linked List:\n");
     while (temp != NULL)
     {
-        printf("%d \t %p\n ", temp->data, temp->next);
+        printf("%d \t %p\n", temp->data, temp->next);
         temp = temp->next;
     }
 
