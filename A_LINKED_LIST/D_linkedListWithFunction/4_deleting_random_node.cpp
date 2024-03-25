@@ -30,31 +30,12 @@ void insert(int datum)
 
 void deleteNode(int position)
 {
-    if (head == NULL)
-    {
-        printf("List is empty\n");
-        return;
-    }
-    
-    if (position == 0) // Delete the head node
-    {
-        struct node *temp = head;
-        head = head->next;
-        free(temp);
-        return;
-    }
-
     struct node *temp = head;
-    for (int i = 0; temp != NULL && i < position - 1; i++)
+    for (int i = 1;  i < position; i++)
     {
         temp = temp->next;
     }
     
-    if (temp == NULL || temp->next == NULL)
-    {
-        printf("Invalid position\n");
-        return;
-    }
 
     struct node *nodeToDelete = temp->next;
     temp->next = nodeToDelete->next;
@@ -85,7 +66,7 @@ int main()
     print();
 
     printf("\n\nAfter deleting node at position 4\n\n");
-    deleteNode(4); // Deleting the node at position 4, counting from 0
+    deleteNode(3); // Deleting the node at position 3, counting from 0
 
     print();
 

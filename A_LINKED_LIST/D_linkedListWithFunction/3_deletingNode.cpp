@@ -1,3 +1,4 @@
+// Delete nodes form first and last
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -7,8 +8,8 @@ struct node
     struct node *next;
 };
 
-struct node *head;
-struct node *tail;
+struct node *head = NULL;
+struct node *tail = NULL;
 
 void insert(int datum)
 {
@@ -27,73 +28,69 @@ void insert(int datum)
         tail = newNode;
     }
 }
-
-void deleteFirstNode()
-{
-    if (head == NULL)
-    {
-        printf("List is empty\n");
-        return;
-    }
+void insertatposition(int position, int data){
     struct node *temp = head;
-    head = head->next;
-    free(temp);
+    struct node *newNode = (struct node *)malloc(sizeof(struct node));
+    newNode->data = data;
+
+for(int i = 1; i <position; i++){
+    temp = temp-> next;
 }
 
-void deleteLastNode()
+newNode->next=temp->next;
+temp->next=newNode;
+    }
+    
+void deleteFirst()
 {
-    if (head == NULL)
-    {
-        printf("List is empty\n");
-        return;
-    }
-    struct node *temp = head;
-    struct node *prev = NULL;
-    while (temp->next != NULL)
-    {
-        prev = temp;
-        temp = temp->next;
-    }
-    if (prev != NULL)
-    {
-        prev->next = NULL;
-        tail = prev;
-    }
-    else // Only one node in the list
-    {
-        head = NULL;
-        tail = NULL;
-    }
-    free(temp);
+	head=head->next;
 }
 
-void print()
+void deleteLast()
 {
-    struct node *temp1 = head;
-    while (temp1 != NULL)
-    {
-        printf("%d|", temp1->data);
-        printf("%p|\n", temp1->next);
-
-        temp1 = temp1->next;
-    }
-    printf("\n");
+	struct node *temp =head;
+	while(temp->next->next!=NULL)
+	{
+		temp=temp->next;
+	}
+	temp->next=NULL;
 }
 
 int main()
 {
-    insert(4);
-    print();
-    insert(6);
-    insert(9);
-    print();
+    insert(1);
+    insert(2);
+    insert(3);
+    insertatposition(2,4);
+    insertatposition(3,5);
+    insertatposition(1,6);
+    struct node *temp = head;
+    while (true)
+    {
+        printf("%d | %p |\n", temp->data, temp->next);
+        temp = temp->next;
+        if (temp==NULL){
+            break;
+        }
+    }
 
-    deleteFirstNode();
-    deleteLastNode();
-    deleteFirstNode();
-    deleteLastNode();
-    deleteLastNode();
-    print();
+
+
+
+   	deleteFirst();
+	deleteLast();
+
+    temp = head;
+    printf("\n\nLinked List:\n");
+    while (true)
+    {
+        printf("%d | %p |\n", temp->data, temp->next);
+        temp = temp->next;
+        if (temp==NULL){
+            break;
+        }
+    }
+
 
     return 0;
 }
