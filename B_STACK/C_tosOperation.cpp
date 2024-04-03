@@ -46,7 +46,7 @@ void print(){
 }
 
 void printTOS(){
-    printf("Stack element: %d\nStack's index: %d ",stack[tos], tos);
+    printf("Stack top element: %d\nStack's index: %d ",stack[tos], tos);
 }
 
 int main(){
