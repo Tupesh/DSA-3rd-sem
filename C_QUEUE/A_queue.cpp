@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -48,7 +47,7 @@ void dequeue()
 {
     if (isEmpty())
     {
-        rear = front = 0;
+
         printf("Queue is empty\n");
     }
     else if (front == rear)
@@ -73,7 +72,7 @@ void print()
         {
             printf("%d\n", queue[i]);
         }
-        printf("front:%d\trear%d\n", front, rear);
+        printf("front: %d\trear: %d\n", front, rear);
         printf("\n\n");
     }
 }
@@ -101,5 +100,12 @@ int main()
     dequeue();
     dequeue();
     dequeue();
+    dequeue();
+    dequeue();
+
+    print();
+    enqueue(3);
+    enqueue(5);
+    enqueue(51);
     print();
  }
