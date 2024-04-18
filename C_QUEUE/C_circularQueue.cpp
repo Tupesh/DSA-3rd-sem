@@ -18,7 +18,7 @@ bool isEmpty()
 
 bool isFull()
 {
-    if ((front == rear + 1) || (front == 0 && rear == maxsize - 1))
+    if (front == ((rear + 1)%maxsize))
     {
         return true;
     }
