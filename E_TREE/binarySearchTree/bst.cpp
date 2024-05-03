@@ -10,7 +10,7 @@ struct node {
 
 struct node *createNode(int value)
 {
-	struct node newNode = (struct node)malloc(sizeof(struct node));
+	struct node *newNode = (struct node *)malloc(sizeof(struct node));
 	newNode->data = value;
 	newNode->left = NULL;
 	newNode->right = NULL;
@@ -55,7 +55,7 @@ int main()
 	insert(root, 10000);
 	insert(root, 100000);
 	
-	printf("Inorder Traversal of the BST: ");
+	printf("Inorder Traversal of the BST:\n ");
 	inorderTraversal(root);
 	printf("\n");
 	return 0;
